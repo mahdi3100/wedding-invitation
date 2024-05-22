@@ -128,10 +128,13 @@ footer {
 }
 .bg-light{
  background-color:  pink !important;
+ background: linear-gradient(to right, pink, rgb(252, 137, 214)) !important;
 }
 .bg-dark{
     background-color:  #1f00a8 ;
-    background: linear-gradient(to right, #008fa8, purple) !important;
+    /*background: linear-gradient(to right, #008fa8, purple) !important;*/
+    background: linear-gradient(to right, #46a5f3, rgb(182, 51, 175)) !important;
+
    }
 .bg-theme-light {
 background-color: var(--bs-gray-100);

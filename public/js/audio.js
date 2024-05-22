@@ -8,7 +8,7 @@ export const audio = (() => {
         if (!audio) {
             audio = new Audio();
            
-            audio.src = theme.isDarkMode() ? "./assets/music/sound-dark-1.mp3" : "./assets/music/sound-light.mp3" ;//music.getAttribute('data-url');
+            audio.src = music.getAttribute('data-url');//theme.isDarkMode() ? "./assets/music/sound-dark-1.mp3" : "./assets/music/sound-light.mp3" ;//music.getAttribute('data-url');
             audio.load();
             audio.currentTime = 0;
             audio.autoplay = true;
@@ -21,7 +21,7 @@ export const audio = (() => {
     };
 
     const switchingThemAudio= ()=>{
-       
+       return;
         if(audio){
             audio.pause();
             audio = null;
