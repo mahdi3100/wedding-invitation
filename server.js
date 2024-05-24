@@ -25,7 +25,7 @@ var MongoConnect = require('./db/config.db');
 //Create instance of mongodb that connect to Database  -  POOL  connection
 var dbPOOL = new MongoConnect()
 
-const port = process.env.NODE_DOCKER_PORT || 8383;// 8787;
+const port = process.env.NODE_DOCKER_PORT || 8484;// 8787;
 app.set('port', port);
 //Instances of Routes API
 
