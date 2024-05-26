@@ -301,7 +301,7 @@ let mainId = "";
 console.log("looking for id "+objectId)
           const post = await comments.findOne({ _id: objectId });
           if (post) {
-            const currentLikes = post.likes || 0;
+            const currentLikes = post.like || 0;
              updateResult = await comments.updateOne(
               { _id: objectId },
               { $set: { 'like': currentLikes - 1 } }
@@ -368,16 +368,14 @@ console.log("looking for id "+objectId)
 console.log("looking for id "+objectId)
           const post = await comments.findOne({ _id: objectId });
           if (post) {
-            console.log("found")
-            console.log(post)
-            console.log(post.like)
+
             const currentLikes = post.like || 0;
-            console.log(currentLikes)
+        
              updateResult = await comments.updateOne(
               { _id: objectId },
               { $set: { 'like': currentLikes + 1 } }
             );
-            console.log(updateResult)
+          
           }
       
          else{
