@@ -92,7 +92,7 @@ console.log("WILL RETUEN")
 
 });
 
-/** PAtch */
+/** PAtch remove like */
 router.patch("/comment/:id",function(req,res){
   //all : For filter paramater 
 console.log("like")
@@ -111,11 +111,11 @@ res.json(result);
 }).catch((err) => {
 
 console.log(err)
-res.json(result);
+res.status(404).json({ code: 400, error: 'Failed to unlike the post' });
 });
 
 });
-/**Route of history/ */
+/** add like */
 router.post("/comment/:id",function(req,res){
   //all : For filter paramater 
 console.log("like")
@@ -134,7 +134,7 @@ res.json(result);
 }).catch((err) => {
 
 console.log(err)
-res.json(result);
+res.status(404).json({ code: 400, error: 'Failed to like the post' });
 });
 
 });

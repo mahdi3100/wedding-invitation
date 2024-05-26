@@ -314,7 +314,7 @@ console.log("looking for id "+objectId)
           console.log("looool")
           console.log(getPath)
           if(!getPath){
-            reject({code:400})
+            reject()
             return;
           }
           const query = { [`${getPath}._id`]: objectId };
@@ -335,7 +335,7 @@ console.log("looking for id "+objectId)
           resolve({ data:{status:200 }}) 
         
         } else {
-          return res.status(500).json({ error: 'Failed to like the post' });
+          reject()
         }
          
 
@@ -368,11 +368,16 @@ console.log("looking for id "+objectId)
 console.log("looking for id "+objectId)
           const post = await comments.findOne({ _id: objectId });
           if (post) {
-            const currentLikes = post.likes || 0;
+            console.log("found")
+            console.log(post)
+            console.log(post.like)
+            const currentLikes = post.like || 0;
+            console.log(currentLikes)
              updateResult = await comments.updateOne(
               { _id: objectId },
               { $set: { 'like': currentLikes + 1 } }
             );
+            console.log(updateResult)
           }
       
          else{
@@ -381,7 +386,7 @@ console.log("looking for id "+objectId)
           console.log("looool")
           console.log(getPath)
           if(!getPath){
-            reject({code:400})
+            reject()
             return;
           }
           const query = { [`${getPath}._id`]: objectId };
@@ -403,7 +408,8 @@ console.log("looking for id "+objectId)
           resolve({ code:201, data:{uuid :objectId } }) 
         
         } else {
-          return res.status(500).json({ error: 'Failed to like the post' });
+          
+          reject()
         }
          
 
@@ -411,7 +417,7 @@ console.log("looking for id "+objectId)
         } catch (err) {
 
           console.log(err)
-          reject(err)
+          reject({code:400})
 
         }
       })()
